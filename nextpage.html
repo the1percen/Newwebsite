@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <link rel="stylesheet" href="nextpage.css">
+    <script src="action.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "aHKLPVPiQiitUhKcq",
+      });
+   })();
+</script>
+  </head>
+  <body>
+    <section class="container">
+      <header>Reservation</header>
+      <form action="https://script.google.com/a/macros/srmist.edu.in/s/AKfycbxZZEbRUxLdO-MuN7sV1Ccelba4xB6MISneCIoaVJ2gyAJRiBsj3CbzZuHtu7-q4PJEjA/exec" class="form" method="post" onsubmit="updateFormFields">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" name="Full Name" placeholder="Enter full name" required />
+        </div>
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" name="Email Address" placeholder="Enter email address" required />
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" name="Phone Number" placeholder="Enter phone number" required />
+          </div>
+          <div class="input-box">
+            <label>Date</label>
+            <input type="date" name="Date" placeholder="Enter birth date" required />
+          </div>
+        </div>
+        <div class="gender-box">
+          <h3>Time</h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-male" name="Time" checked />
+              <label for="check-male">10 AM To 11 AM</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-female" name="Time" />
+              <label for="check-female">11 AM To 12 AM</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-other" name="Time" />
+              <label for="check-other">12 AM To 1 PM</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-other" name="Time" />
+              <label for="check-other">1 PM To 2 PM</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-box address">
+          <label>Location</label>
+          <div class="column">
+            <div class="select-box" >
+              <select name="Location" id="locationSelect" onchange="showRestaurants()">
+                <option hidden>Location</option>
+                <option>Chennai</option>
+                <option>Nungambakkam</option>
+                <option>paris</option>
+                <option>porur</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="movie-container" id="restaurantContainer" style="display: none;">
+          <label>Pick a Restaurent</label>
+          <select id="movie"  name="Pick a Restaurent" onchange="changeSeats()">
+            <option value="250">Kora Foods (250rs) </option>
+            <option value="200">S2S Biriyani (200rs) </option>
+            <option value="150">Seeraga Samba Beef Biriyani (150rs)</option>
+            <option value="100">UPM Gossips (100rs)</option>
+            <option value="250">Asif Biriyani(150rs)</option>
+            <option value="200">Raguman Biriyani(200rs) </option>
+            <option value="150">Wedding Biriyani (300rs)</option>
+            <option value="100">silon (400rs)</option>
+            <option value="150">KFC(180rs)</option>
+            <option value="100">Mac(220rs)</option>
+        </select>
+        <input type="hidden" name="Pick a Restaurent" value="" id="restaurantSelection">
+        <input type="hidden" name="seat" value="" id="seatSelection">
+        <div id="container">
+          <div class="screen"></div>
+          <div class="row">
+            <div class="seat occupied" name="seat1"></div>
+            <div class="seat occupied" name="seat2"></div>
+            <div class="seat" name="seat3"></div>
+            <div class="seat" name="seat4"></div>
+          </div>
+          <div class="row">
+            <div class="seat" name="seat5"></div>
+            <div class="seat" name="seat6"></div>
+            <div class="seat" name="seat7"></div>
+            <div class="seat" name="seat8"></div>
+            <div class="seat" name="seat9"></div>
+            <div class="seat" name="seat10"></div>
+            <div class="seat occupied" name="seat11"></div>
+            <div class="seat occupied" name="seat12"></div>
+          </div>
+          <div class="row">
+            <div class="seat" name="seat13"></div>
+            <div class="seat" name="seat14"></div>
+            <div class="seat" name="seat15"></div>
+            <div class="seat" name="seat16"></div>
+            <div class="seat" name="seat17"></div>
+            <div class="seat" name="seat18"></div>
+            <div class="seat occupied" name="seat19"></div>
+            <div class="seat occupied" name="seat20"></div>
+          </div>
+          <div class="row">
+            <div class="seat" name="seat21"></div>
+            <div class="seat" name="seat22"></div>
+            <div class="seat" name="seat23"></div>
+            <div class="seat" name="seat24"></div>
+            <div class="seat" name="seat25"></div>
+            <div class="seat" name="seat26"></div>
+            <div class="seat occupied" name="seat27"></div>
+            <div class="seat occupied" name="seat28"></div>
+          </div>
+          <div class="row">
+            <div class="seat occupied" name="seat29"></div>
+            <div class="seat occupied" name="seat30"></div>
+            <div class="seat" name="seat31"></div>
+            <div class="seat" name="seat32"></div>
+          </div>
+        </div>
+          <ul class="showcase">
+            <li>
+              <div class="seat"></div>
+              <small>N/A</small>
+            </li>
+            <li>
+              <div class="seat selected"></div>
+              <small>Selected</small>
+            </li>
+            <li>
+              <div class="seat occupied"></div>
+              <small>Occupied</small>
+            </li>    
+          </ul>
+        <select name="seat" id=""></select>
+          <div class="container">
+            <p class="text">
+              You have selected <span id="count">0</span> seats for the total price of Rs. <span id="total">0</span>
+            </p>
+          </div>
+        <button>Submit</button>
+      </form>
+    </section>
+  </body>
+</html>

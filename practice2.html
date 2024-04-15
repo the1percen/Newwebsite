@@ -1,0 +1,72 @@
+<div class="input-box address">
+    <label>Location</label>
+    <div class="column">
+      <div class="select-box">
+        <select id="locationSelect" name="Location" onchange="showRestaurants()">
+          <option hidden>Location</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Nungambakkam">Nungambakkam</option>
+          <option value="Paris">Paris</option>
+          <option value="Porur">Porur</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="movie-container" id="restaurantContainer" style="display: none;">
+    <label>Pick a Restaurant</label>
+    <select id="restaurantSelect" name="Pick_a_Restaurant">
+      <!-- Restaurants will be dynamically added here based on the selected location -->
+    </select>
+  </div>
+  
+  <script>
+    function showRestaurants() {
+      var locationSelect = document.getElementById("locationSelect");
+      var selectedLocation = locationSelect.value;
+      var restaurantContainer = document.getElementById("restaurantContainer");
+      var restaurantSelect = document.getElementById("movie");
+  
+      // Clear previous options
+      restaurantSelect.innerHTML = '';
+  
+      if (selectedLocation !== "Location") {
+        // Show the restaurant container
+        restaurantContainer.style.display = "block";
+  
+        // Add restaurants based on the selected location
+        switch (selectedLocation) {
+          case "Chennai":
+            addOption(restaurantSelect, "Kora Foods (250rs)", "250");
+            addOption(restaurantSelect, "S2S Biriyani (200rs)", "200");
+            addOption(restaurantSelect, "Seeraga Samba Beef Biriyani (150rs)", "150");
+            addOption(restaurantSelect, "UPM Gossips (100rs)", "100");
+            break;
+          case "Nungambakkam":
+            addOption(restaurantSelect, "Asif Biriyani(150rs)", "150");
+            addOption(restaurantSelect, "Raguman Biriyani(200rs)", "200");
+            break;
+          case "Paris":
+            addOption(restaurantSelect, "KFC (180rs)", "180");
+            addOption(restaurantSelect, "Mac (220rs)", "220");
+            break;
+          case "Porur":
+            addOption(restaurantSelect, "Wedding Biriyani (300rs)", "300");
+            addOption(restaurantSelect, "Silon (400rs)", "400");
+            break;
+          default:
+            break;
+        }
+      } else {
+        // Hide the restaurant container if no location selected
+        restaurantContainer.style.display = "none";
+      }
+    }
+  
+    function addOption(selectElement, text, value) {
+      var option = document.createElement("option");
+      option.text = text;
+      option.value = value;
+      selectElement.add(option);
+    }
+  </script>
+  
